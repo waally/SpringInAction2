@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="baseSaxophonist" class="com.springinaction.chapter03.parent.Instrumentalist" abstract="true">
+		<property name="song" value="JXY"></property>
+		<property name="instrument" ref="instrument"></property>
+	</bean>
+	
+	<bean id="instrument" class="com.springinaction.chapter03.parent.Saxophone"/>
+	
+	<bean id="kenny" parent="baseSaxophonist"></bean>
+	<bean id="david" parent="baseSaxophonist">
+		<property name="song" value="FTX"></property>
+	</bean>
+	
+	
+</beans>

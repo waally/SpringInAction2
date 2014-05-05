@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="hank" class="com.springinaction.chapter02.fit.OneManBand">
+		<property name="instruments">
+			<list>
+				<bean class="com.springinaction.chapter02.fit.Cymbal"></bean>
+				<bean class="com.springinaction.chapter02.fit.Guitar"></bean>
+				<bean class="com.springinaction.chapter02.fit.Harmonica"></bean>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

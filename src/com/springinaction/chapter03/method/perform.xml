@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="harry" class="com.springinaction.chapter03.method.Magician">
+		<property name="magicWords" value="mali mali hong"></property>
+		<!-- <property name="magicBox" ref="magicBox"></property> -->
+		<lookup-method name="getMagicBox" bean="magicBox"/>
+	</bean>
+	
+	<bean id="magicBox" class="com.springinaction.chapter03.method.MagicBoxImpl">
+		<replaced-method name="getContents" replacer="tigerReplacer"></replaced-method>
+	</bean>
+	
+	<bean id="tigerReplacer" class="com.springinaction.chapter03.method.TigerReplacer"></bean>
+	
+</beans>
