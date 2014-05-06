@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<bean id="harry" class="com.springinaction.chapter04.auto.Magician">
+		<property name="magicWords" value="mali mali hong"></property>
+	</bean>
+	
+	<bean id="advice" class="com.springinaction.chapter04.auto.AudienceAdvice"></bean>
+	
+	<bean id="audienceAdvice" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref="advice"></property>
+		<property name="pattern" value=".*perform"></property>
+	</bean>	
+	
+	<bean class="com.springinaction.chapter04.auto.Audience"></bean>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>	
+<!-- 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>-->
+ </beans>
